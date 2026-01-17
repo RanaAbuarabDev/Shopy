@@ -1,61 +1,113 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Shopy
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Shopy is a multi-user e-commerce application built with Laravel.  
+It is designed as an educational project that demonstrates how to build a complete online store with multiple user roles, dashboards, order management, and online payments.
 
-## About Laravel
+The system supports **admins**, **merchants**, and **customers**, each with their own permissions and workflows.  
+It combines traditional Blade dashboards with modern **Filament admin panels**, along with a RESTful API for core e-commerce operations.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### General
+- Multi-user e-commerce system
+- Authentication and authorization
+- Role-based access control (Admin, Merchant, Customer)
+- RESTful API architecture
+- File and image upload handling
+- Clean API responses using Resources and Helpers
 
-## Learning Laravel
+### Admin Features
+- Admin authentication
+- Manage categories
+- Manage merchants and customers
+- Manage products
+- View and manage orders
+- Filament-based admin panel
+- Artisan command to create admin users
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Merchant Features
+- Merchant registration and authentication
+- Product management (CRUD)
+- Product image management
+- Manage received orders
+- Update order item status
+- Merchant-specific API resources and policies
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Customer Features
+- Customer authentication
+- Browse products and categories
+- Shopping cart system
+- Add, update, and remove cart items
+- Checkout process
+- Shipping address management
+- Order creation and order status tracking
+- Stripe payment integration
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Orders & Payments
+- Order and order item management
+- Order status tracking
+- Stripe payment gateway integration
+- Payment records stored in the database
 
-## Laravel Sponsors
+### System & Architecture
+- Blade-based dashboards
+- Filament admin resources
+- Middleware for role checking
+- Policies for authorization
+- Observers for automatic model handling
+- Jobs for background processing
+- Custom validation rules
+- Service-based authentication logic
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 🛠 Tech Stack
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- **Language:** PHP
+- **Framework:** Laravel
+- **Database:** MySQL
+- **Frontend (Dashboards):**
+  - Blade
+  - Filament
+- **Payment Gateway:** Stripe
+- **Architecture:** MVC + Service-based structure
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 📂 Project Structure Overview
 
-## Code of Conduct
+- `Controllers` – Handle API and web requests
+- `Filament` – Admin panel resources
+- `Models` – Application data models
+- `Requests` – Request validation
+- `Resources` – API response formatting
+- `Middleware` – Role and access control
+- `Policies` – Authorization logic
+- `Observers` – Model lifecycle handling
+- `Jobs` – Background tasks
+- `Services` – Business logic
+- `Traits` – Shared model functionality
+- `Helpers` – Response formatting utilities
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## ⚙️ Installation & Setup
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Prerequisites
+- PHP >= 8.1
+- Composer
+- MySQL
+- Stripe account (for payments)
 
-## License
+### Steps
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+git clone https://github.com/RanaAbuarabDev/shopy.git
+cd shopy
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+php artisan serve
